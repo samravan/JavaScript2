@@ -13,8 +13,13 @@
 
 function displayCurrentTime() {
   // your code goes in here
-  const time = new Date();
-  document.getElementById('time').innerHTML = time.toLocaleTimeString();
+ const time = new Date();
+ const hours = time.getHours();
+ const minutes = time.getMinutes();
+ const seconds = time.getSeconds();
+ const localTime = `${hours}:${minutes}:${seconds}`
+ document.body.innerHTML = localTime
+ 
 }
 
 setInterval(displayCurrentTime, 1000);
