@@ -18,7 +18,7 @@ function displayCurrentTime() {
  const minutes = time.getMinutes();
  const seconds = time.getSeconds();
  const localTime = `${hours}:${minutes}:${seconds}`
- document.body.innerHTML = localTime
+ document.body.innerHTML = localTime;
  
 }
 
