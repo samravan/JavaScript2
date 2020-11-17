@@ -36,7 +36,11 @@ function catWalk() {
   imgCat.style.left = (currentLeft + 10) + 'px';
   if (currentLeft == (halfWin)/2) {
     imgCat.src = 'https://media.giphy.com/media/Qd8Fwmm0PgTcc/giphy.gif';
-    imgCat.style.animationduration = "5s";
+    let start = Date.now(); //remember start time
+    let timePassed = Date.now() - start;
+    if (timePassed > 5000) {
+        
+    }
 
     
   }else if (currentLeft > (halfWin)) {
