@@ -34,23 +34,35 @@ let halfWin = window.innerWidth-imgCat.width;
 function catWalk() {
   const currentLeft = parseInt(imgCat.style.left);
   imgCat.style.left = (currentLeft + 10) + 'px';
+  
+  // const time = Date.now()
+  // const time2 = time + 5000
+  // console.log(time)
+ 
+let timeObject = new Date();
+let milliseconds= 10 * 1000; // 10 seconds = 10000 milliseconds
+timeObject = new Date(timeObject.getTime() + milliseconds);
+console.log(timeObject)
+
+  // const time = new Date()
+  // time.setSeconds(time.getSeconds() + 5);
+  // console.log(time)
+
   if (currentLeft == (halfWin)/2) {
     imgCat.src = 'https://media.giphy.com/media/Qd8Fwmm0PgTcc/giphy.gif';
-    let start = Date.now(); //remember start time
-    let timePassed = Date.now() - start;
-    if (timePassed > 5000) {
-        
-    }
-
     
-  }else if (currentLeft > (halfWin)) {
+  
+    }else if(time2 >5000) {
+      imgCat.src = 'http://www.anniemation.com/clip_art/images/cat-walk.gif';
+
+    } else if (currentLeft > (halfWin)) {
     
     imgCat.style.left = '0px';
   }
- 
+  
 
 
 }
 
 
-setInterval(catWalk, 50);
+// setInterval(catWalk, 50);
