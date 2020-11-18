@@ -1,0 +1,127 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FFA500;
+  color: #FFA500;
+  font-size: 14px;
+  font-family: 'Dancing Script', cursive;
+  
+}
+
+.container {
+  background-color: white;
+  width : 80%;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  box-shadow: inset 0 0 5px grey;
+}
+
+.quote {
+  margin: 20px;
+}
+
+#quote {
+font-size: 2.2rem;
+margin: 40px 40px;
+position: relative;
+text-align: center;
+animation: slide 0.5s ease-out;
+}
+
+@keyframes slide {
+  0% {margin-left: -600px;}
+  100%{margin-left: 40px;}
+}
+
+
+#quote::before{
+  content: '"';
+  font-size: 6rem;
+  position: absolute;
+  top: -30px;
+  left: -20px;
+}
+
+#author {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin-right: 30px;
+}
+
+#author::before{
+  content: '-';
+  margin-right: 5px ;
+}
+
+.buttons{ 
+  margin: 30px;
+}
+
+.clearFix {
+  clear: both;
+}
+
+button {
+  float: right;
+  background-color: #FFA500;
+  border: none;
+  color: white;
+  border-radius: 2px;
+  padding: 10px;
+  margin: 20px;
+  font-size: 1.1rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+button:hover{
+  transform: scale(1.2,1.2);
+  cursor: pointer;
+}
+
+button:focus {
+ outline: none;
+}
+
+a {
+  display: inline-block;
+  font-size: 1.5rem;
+  margin: 5px;
+  background-color: #FFA500;
+  padding: 10px;
+  color: white;
+}
+
+a:hover{
+  transform: scale(1.2,1.2);
+}
+
+@media only screen and (max-width: 430px) {
+  button {
+    float: none;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  #author {
+    float: none;
+  }
+  .buttons{
+    text-align: center;
+  }
+
+  a {
+    display: inline-block;
+    font-size: 1rem;
+  }
+}
