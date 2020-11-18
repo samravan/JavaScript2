@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* font-family: Georgia, serif; */
 }
 body {
     background-color: #ffa500;
@@ -9,7 +10,7 @@ body {
 }
 
 .container {
-    /* display: flex; */
+    display: flex;
     width: 70vw;
     height: 50vh;
     margin-left: 30px;
@@ -25,10 +26,9 @@ body {
     top: 10vh;
     left: 5vw;
     margin-right: 30px;
-    
-
 
 }
+
 
 button {
     color: white;
@@ -37,14 +37,15 @@ button {
     position: absolute;
     right: 50px;
     bottom: 50px;
-    padding: 10px;
+    padding: 15px;
     width: 150px;
     margin-right: 40px;
+    border: none;
+    font-family: Georgia, serif;
+  
     
 
 }
-/* button:focus {outline: none;} */
-
 .social {
     position: absolute;
     bottom:50px;
@@ -56,7 +57,7 @@ button {
     width: 50px;
     text-align: center;
     text-decoration: none;
-    /* align-self: flex-end; */
+    
     
     
     
@@ -83,7 +84,8 @@ blockquote {
     margin: 0.5em;
     padding: 0.5em 2em 0.5em 3em;
 }
-/* Thanks: http://callmenick.com/post/styling-blockquotes-with-css-pseudo-classes */
+
+
 blockquote:before {
     font-family: Georgia, serif;
     position: absolute;
@@ -93,21 +95,13 @@ blockquote:before {
     left: 0;
     content: "\201C";
 }
-blockquote:after {
-    font-family: Georgia, serif;
-    position: absolute;
-   /* display: block; don't use this, it raised the quote too high from the bottom - defeated line-height? */
-    float:right;
-    font-size:6em;
-    line-height: 1;
-    right:0;
-    bottom:-0.5em;
-    /* content: "\201D"; */
-}
+
+
 blockquote footer {
     padding: 0 2em 0 0;
     text-align:right;
 }
+
 blockquote cite:before {
     content: "\2013";
 }

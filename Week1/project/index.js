@@ -27,3 +27,19 @@ const quotes = [
 ]
 
 
+   
+
+function readQuotes(){
+    const quoteSentence = document.querySelector('blockquote p');
+    const quoteAuthor = document.querySelector('cite');
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    const randomEl = Object.values(randomQuote)
+    quoteSentence.textContent = randomEl[0];
+    quoteAuthor.textContent = randomEl[1];
+
+    
+};
+
+const button = document.querySelector('button')
+button.addEventListener('click', readQuotes);
+
