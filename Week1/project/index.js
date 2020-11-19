@@ -22,8 +22,13 @@ const quotes = [
     },
     {
         quote: 'The future belongs to those who prepare for it today.',
+        author: 'Walt Disney '
+    },
+    {
+        quote: 'The way to get started is to quit talking and begin doing.',
         author: 'Malcolm X '
     }
+
 ]
 
 
@@ -33,7 +38,7 @@ function readQuotes(){
     const quoteSentence = document.querySelector('blockquote p');
     const quoteAuthor = document.querySelector('cite');
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    const randomEl = Object.values(randomQuote)
+    const randomEl = Object.values(randomQuote);
     quoteSentence.textContent = randomEl[0];
     quoteAuthor.textContent = randomEl[1];
 

@@ -52,10 +52,6 @@ function createBookList(books) {
  
   
   
-  
-  
-  
-  
 }
 
 const books = [{
