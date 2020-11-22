@@ -18,4 +18,23 @@ function doubleEvenNumbers(numbers) {
 }
 
 const myNumbers = [1, 2, 3, 4];
-console.log(doubleEvenNumbers(myNumbers)); // Logs "[4, 8]" to the console
+// console.log(doubleEvenNumbers(myNumbers)); // Logs "[4, 8]" to the console
+
+
+//Filter MEthod:
+const evenDouble = myNumbers.filter(number => {
+  if(number % 2 === 0){
+    let even = number * 2; //This gives me the answer but when it return the even, answers will got back to normal! Why it's like this?
+    return even;
+  }
+  
+});
+console.log(evenDouble);
+
+//Map Method: 
+const evenNum = myNumbers.map(number => {
+  if(number % 2 === 0) {
+    return number *2;
+  };
+});
+console.log(evenNum);
