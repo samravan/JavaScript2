@@ -42,7 +42,6 @@ function readQuotes(){
     quoteSentence.textContent = randomEl[0];
     quoteAuthor.textContent = randomEl[1];
 
-    
 };
 
 const button = document.querySelector('button')
