@@ -14,7 +14,8 @@
 
 function dayWorth(tasks, hourlyRate) {
   // put your code in here, the function does returns a euro formatted string
-  
+  const TDur = mondayTasks.map(duration);
+  console.log(TDur)
 }
 
 const mondayTasks = [{

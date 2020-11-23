@@ -25,7 +25,7 @@ const myNumbers = [1, 2, 3, 4];
 const evenDouble = myNumbers
     .filter(number => (number % 2 === 0))
     .map(number => number *2 )
-    // let even = number * 2; //This gives me the answer but when it return the even, answers will got back to normal! Why it's like this?
+    
   
 console.log(evenDouble);
 
