@@ -14,6 +14,7 @@
 
 function dayWorth(tasks, hourlyRate) {
   // put your code in here, the function does returns a euro formatted string
+  
 }
 
 const mondayTasks = [{
