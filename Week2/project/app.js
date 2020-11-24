@@ -15,7 +15,7 @@ play.addEventListener('click', playTimer);
 
 function playTimer() {
   timer();
-  const timing = setInterval(timer, 10);
+  const timing = setInterval(timer, 1000);
 
   timeUp.removeEventListener('click', increaseTime);
   timeDown.removeEventListener('click', decreaseTime);
@@ -29,10 +29,10 @@ function playTimer() {
         minute--;
         break;
       case (minute == 0 && second == 1):
+        bell.play();
         time.textContent = "Time's up!";
         clearInterval(timing);
         stop.addEventListener('click', stopTimer);
-        bell.play();
         break;
       default:
         second--;
