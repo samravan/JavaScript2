@@ -30,6 +30,7 @@ body{
   outline: none;
   padding: 10px;
   background-color: darkcyan;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 h1{
@@ -90,3 +91,4 @@ i:hover{
 i:active{
   color: red;
 }
+
