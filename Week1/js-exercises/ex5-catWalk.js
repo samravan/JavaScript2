@@ -30,39 +30,46 @@
 
 const imgCat = document.getElementsByTagName('img')[0];
 imgCat.style.left = '0px';
-let halfWin = window.innerWidth-imgCat.width;
+let speed = 1;
+let time; 
+let winScreen = window.innerWidth-imgCat.width;
 function catWalk() {
   const currentLeft = parseInt(imgCat.style.left);
-  imgCat.style.left = (currentLeft + 10) + 'px';
+  
+  imgCat.style.left = (currentLeft + speed) + 'px';
+  
   
   // const time = Date.now()
   // const time2 = time + 5000
   // console.log(time)
  
-let timeObject = new Date();
-let milliseconds= 10 * 1000; // 10 seconds = 10000 milliseconds
-timeObject = new Date(timeObject.getTime() + milliseconds);
-console.log(timeObject)
+// let timeObject = new Date();
+// let milliseconds= 10 * 1000; // 10 seconds = 10000 milliseconds
+// timeObject = new Date(timeObject.getTime() + milliseconds);
+// console.log(timeObject)
 
-  // const time = new Date()
-  // time.setSeconds(time.getSeconds() + 5);
-  // console.log(time)
-
-  if (currentLeft == (halfWin)/2) {
-    imgCat.src = 'https://media.giphy.com/media/Qd8Fwmm0PgTcc/giphy.gif';
-    
   
-    }else if(time2 >5000) {
-      imgCat.src = 'http://www.anniemation.com/clip_art/images/cat-walk.gif';
 
-    } else if (currentLeft > (halfWin)) {
+  if (currentLeft == winScreen/2) {
+    speed = 0;
+    time = new Date()
+    time.setSeconds(time.getSeconds() + 5);
+
+    imgCat.src = 'https://media.giphy.com/media/Qd8Fwmm0PgTcc/giphy.gif';
+    let now = new Date();
+    while(now.getTime() - time.getTime() < 2000){
+      now = new Date();
+    }
+
     
-    imgCat.style.left = '0px';
-  }
+    } else if (currentLeft > (winScreen)) {
+    
+      imgCat.style.left = '0px';
+    }
   
 
 
 }
 
 
-// setInterval(catWalk, 50);
+// setInterval(catWalk, 1);
