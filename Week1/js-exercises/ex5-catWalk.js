@@ -11,39 +11,29 @@
  6. When the cat reaches the middle of the screen, replace the img with an image of a cat dancing(use this URL: https: //tenor.com/StFI.gif), keep it dancing for 5 seconds, and then replace the img with the original image and have it continue the walk.
  
 */
-function sleep(ms) {
-  return new Promise(
-    resolve => setTimeout(resolve, ms)
-  );
-}
-
 const catImg = document.querySelector('body img');
-catImg.style.left = '0';
-let point =0;
-function catWalk() {
-  if (point > screen.width){
-    point = 0 ;
-  } else if (point == (screen.width / 2) ) {
-   
-    catImg.src = 'tenor.gif';
-    sleep(2000);
-    catImg.src = 'http://www.anniemation.com/clip_art/images/cat-walk.gif';
-    point++;
-   
-    
-  } else {
-  catImg.style.left = `${point}px`;
-  point++;
-  }
-}
+let point = -300;
+app();
 
-setInterval(catWalk, 5);
+function app() {
 
-//another ways
-// setInterval(function(){
-//   if (point > screen.width){
-//     point = -300 ;
-//   }
-//   catImg.style.left = point + 'px';
-//   point += 10;
-// }, 50);
+  const walking = setInterval(catWalk, 5);
+
+  function catWalk() {
+    if (point > screen.width) {
+      point = -300;
+    } else if (point == (screen.width / 2) - 150) {
+      clearInterval(walking);
+      catImg.src = 'tenor.gif';
+      setTimeout(() => {
+        catImg.src = 'http://www.anniemation.com/clip_art/images/cat-walk.gif';
+        point++;
+        app();
+      }, 5000);
+    } else {
+      catImg.style.left = `${point}px`;
+      point++;
+    };
+  };
+};
+
