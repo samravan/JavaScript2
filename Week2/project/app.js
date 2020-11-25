@@ -12,15 +12,20 @@ let second = 0;
 timeUp.addEventListener('click', increaseTime);
 timeDown.addEventListener('click', decreaseTime);
 play.addEventListener('click', playTimer);
+stop.style.display = "none";
+
 
 function playTimer() {
-  timer();
-  const timing = setInterval(timer, 1000);
-
   timeUp.removeEventListener('click', increaseTime);
   timeDown.removeEventListener('click', decreaseTime);
   play.removeEventListener('click', playTimer);
   pause.addEventListener('click', pauseTimer);
+  stop.removeEventListener('click', stopTimer);
+  stop.style.display = "none";
+
+
+  timer();
+  const timing = setInterval(timer, 1000);
 
   function timer() {
     switch (true) {
@@ -33,6 +38,7 @@ function playTimer() {
         time.textContent = "Time's up!";
         clearInterval(timing);
         stop.addEventListener('click', stopTimer);
+        stop.style.display = "inline";
         break;
       default:
         second--;
@@ -45,6 +51,7 @@ function playTimer() {
     clearInterval(timing);
     play.addEventListener('click', playTimer);
     stop.addEventListener('click', stopTimer);
+    stop.style.display = "inline";
   }
 
   function stopTimer() {
@@ -55,6 +62,8 @@ function playTimer() {
     timeUp.addEventListener('click', increaseTime);
     timeDown.addEventListener('click', decreaseTime);
     play.addEventListener('click', playTimer);
+    stop.removeEventListener('click', stopTimer);
+    stop.style.display = "none";
   }
 }
 
