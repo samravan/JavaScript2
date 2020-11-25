@@ -11,8 +11,8 @@ let second = 0;
 
 timeUp.addEventListener('click', increaseTime);
 timeDown.addEventListener('click', decreaseTime);
+stop.addEventListener('click', stopTimer);
 play.addEventListener('click', playTimer);
-stop.style.display = "none";
 
 
 function playTimer() {
@@ -21,11 +21,8 @@ function playTimer() {
   play.removeEventListener('click', playTimer);
   pause.addEventListener('click', pauseTimer);
   stop.removeEventListener('click', stopTimer);
-  stop.style.display = "none";
-
-
   timer();
-  const timing = setInterval(timer, 1000);
+  const timing = setInterval(timer, 10);
 
   function timer() {
     switch (true) {
@@ -38,34 +35,20 @@ function playTimer() {
         time.textContent = "Time's up!";
         clearInterval(timing);
         stop.addEventListener('click', stopTimer);
-        stop.style.display = "inline";
         break;
       default:
         second--;
         time.textContent = minute + ':' + second;
-    }
-  }
+    };
+  };
 
   function pauseTimer() {
-    pause.removeEventListener('click', pauseTimer);
     clearInterval(timing);
-    play.addEventListener('click', playTimer);
+    pause.removeEventListener('click', pauseTimer);
     stop.addEventListener('click', stopTimer);
-    stop.style.display = "inline";
-  }
-
-  function stopTimer() {
-    minute = 25;
-    second = 0;
-    timeSelect.textContent = minute;
-    time.textContent = minute + ':00';
-    timeUp.addEventListener('click', increaseTime);
-    timeDown.addEventListener('click', decreaseTime);
     play.addEventListener('click', playTimer);
-    stop.removeEventListener('click', stopTimer);
-    stop.style.display = "none";
-  }
-}
+  };
+};
 
 function increaseTime() {
   if (timeSelect.textContent == 59) {
@@ -73,7 +56,7 @@ function increaseTime() {
   } else {
     timeSelect.textContent = parseInt(timeSelect.textContent) + 1;
     minute++;
-  }
+  };
 };
 
 function decreaseTime() {
@@ -82,5 +65,15 @@ function decreaseTime() {
   } else {
     timeSelect.textContent = parseInt(timeSelect.textContent) - 1;
     minute--;
-  }
+  };
+};
+
+function stopTimer() {
+  minute = 25;
+  second = 0;
+  timeSelect.textContent = minute;
+  time.textContent = minute + ':00';
+  timeUp.addEventListener('click', increaseTime);
+  timeDown.addEventListener('click', decreaseTime);
+  play.addEventListener('click', playTimer);
 };
