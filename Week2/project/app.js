@@ -22,7 +22,7 @@ function playTimer() {
   pause.addEventListener('click', pauseTimer);
   stop.removeEventListener('click', stopTimer);
   timer();
-  const timing = setInterval(timer, 10);
+  const timing = setInterval(timer, 1000);
 
   function timer() {
     switch (true) {
