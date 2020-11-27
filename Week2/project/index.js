@@ -32,7 +32,7 @@ function counterRun() {
   pauseBtn.addEventListener('click', counterPause);
   stopBtn.removeEventListener('click', stopTimer);
   playBtn.removeEventListener('click', counterRun)
-  const counterStart = setInterval(timer, 10);
+  const counterStart = setInterval(timer, 1000);
 
   function counterPause() {
     clearInterval(counterStart);
@@ -89,7 +89,7 @@ function timer() {
     
 
   }
-  stopBtn.addEventListener('click', stopTimer);
+  
  
 }
 
