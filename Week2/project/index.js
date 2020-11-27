@@ -12,12 +12,48 @@
 const arrowUp = document.querySelector('.fa-arrow-up');
 const arrowDown = document.querySelector('.fa-arrow-down');
 const startTime = document.querySelector('.start-time');
+const timerText = document.querySelector('.timer');
 const playBtn = document.querySelector('.fa-play');
+const stopBtn = document.querySelector('.fa-stop')
 const pauseBtn = document.querySelector('.fa-pause');
-const minutesTimer = document.querySelector('.minutes');
-const secondsTimer = document.querySelector('.seconds');
+let minutesTimer = document.querySelector('.minutes');
+let secondsTimer = document.querySelector('.seconds');
+
 
 let intialTime = 25;
+
+arrowUp.addEventListener('click', addMinute);
+arrowDown.addEventListener('click', minusMinute);
+playBtn.addEventListener('click', counterRun);
+stopBtn.addEventListener('click', stopTimer)
+
+
+function counterRun() {
+  pauseBtn.addEventListener('click', counterPause);
+  stopBtn.removeEventListener('click', stopTimer);
+  playBtn.removeEventListener('click', counterRun)
+  const counterStart = setInterval(timer, 10);
+
+  function counterPause() {
+    clearInterval(counterStart);
+    playBtn.addEventListener('click', counterRun);
+    stopBtn.addEventListener('click', stopTimer)
+    
+  }
+
+  };
+
+  
+  function stopTimer(){
+    
+    minutesTimer.textContent = 25;
+    secondsTimer.textContent = '00';
+    startTime.textContent = 25;
+    
+
+  }
+
+
 function addMinute() {
  intialTime++; 
   startTime.innerHTML = intialTime;
@@ -26,7 +62,7 @@ function addMinute() {
     intialTime = 0;
   };
   
-  
+
 };
 
 function minusMinute() {
@@ -34,86 +70,34 @@ function minusMinute() {
   startTime.innerHTML = intialTime;
   minutesTimer.innerHTML = intialTime;
   if(intialTime == 0){
-    intialTime = 1;
+    intialTime = 60;
   };
   
 };
 
-
-
-let seconds = 60;
-function countDownSeconds() {
-  seconds--;
-  secondsTimer.innerHTML = seconds;
-  if (seconds == 0) {
-    seconds = 60;
+function timer() {
+  arrowUp.removeEventListener('click', addMinute);
+  arrowDown.removeEventListener('click', minusMinute);
+  if (secondsTimer.textContent != 0){
+    secondsTimer.textContent--;
+  } else if (minutesTimer.textContent != 0 && secondsTimer.textContent == 0){
+    secondsTimer.textContent = 59;
+    minutesTimer.textContent--;
     
+  } else if (minutesTimer.textContent == 0 && secondsTimer.textContent == 0){
+    timerText.textContent = "Time's Up!";
+    
+
   }
-};
-
-
-// let countDown = setInterval(countDownSeconds, 1000)
-
-
-let minutes = intialTime
-function countDownMinutes() {
-  minutes--
-  minutesTimer.innerHTML = minutes;
-  if (minutes === 0){
-  clearInterval(counterRun)
-    
-  };
-};
-// let clockTimer = setInterval(countDownMinutes, 60000)
-let isClockRunning = false;
-
-function counterRun() {
-  setInterval(countDownSeconds, 1000);
-  setInterval(countDownMinutes, 60000);
-
-  };
-
-
-// START
-playBtn.addEventListener('click', () => {
- counterRun();
-
-})
-
-// PAUSE
-// pauseBtn.addEventListener('click', () => {
-//   toggleClock();
-// })
-
-// // STOP
-// stopBtn.addEventListener('click', () => {
-//   toggleClock(true);
-// })
+  stopBtn.addEventListener('click', stopTimer);
+ 
+}
 
 
 
 
 
-// const toggleClock = (reset) => {
-//   if (reset) {
-//     // STOP THE TIMER
-//   } else {
-//     if (isClockRunning === true) {
-//       // PAUSE THE TIMER
-//       isClockRunning = false;
-//     } else {
-//       // START THE TIMER
-//       isClockRunning = true;
-//       clockTimer = setInterval(countDownMinutes, 60000)
 
-//     }
-//   }
-// }
-
-//Event Listener
-arrowUp.addEventListener('click', addMinute);
-arrowDown.addEventListener('click', minusMinute);
-// playBtn.addEventListener('click', countDown);
 
 
  
