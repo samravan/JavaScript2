@@ -18,6 +18,7 @@ const stopBtn = document.querySelector('.fa-stop')
 const pauseBtn = document.querySelector('.fa-pause');
 let minutesTimer = document.querySelector('.minutes');
 let secondsTimer = document.querySelector('.seconds');
+const dots = document.querySelector('.dots')
 
 
 let intialTime = 25;
@@ -27,12 +28,12 @@ arrowDown.addEventListener('click', minusMinute);
 playBtn.addEventListener('click', counterRun);
 stopBtn.addEventListener('click', stopTimer)
 
-
+let counterStart;
 function counterRun() {
   pauseBtn.addEventListener('click', counterPause);
   stopBtn.removeEventListener('click', stopTimer);
   playBtn.removeEventListener('click', counterRun)
-  const counterStart = setInterval(timer, 1000);
+  counterStart = setInterval(timer, 1);
 
   function counterPause() {
     clearInterval(counterStart);
@@ -44,12 +45,19 @@ function counterRun() {
   };
 
   
+
+
   function stopTimer(){
     
-    minutesTimer.textContent = 25;
-    secondsTimer.textContent = '00';
+    minutesTimer.innerHTML = "25";
+    dots.textContent = ":";
+    secondsTimer.innerHTML = '00';
     startTime.textContent = 25;
-    
+    intialTime = 25
+    clearInterval(counterStart);
+    playBtn.addEventListener('click', counterRun);
+    arrowUp.addEventListener('click', addMinute);
+    arrowDown.addEventListener('click', minusMinute);
 
   }
 
@@ -84,8 +92,14 @@ function timer() {
     secondsTimer.textContent = 59;
     minutesTimer.textContent--;
     
-  } else if (minutesTimer.textContent == 0 && secondsTimer.textContent == 0){
-    timerText.textContent = "Time's Up!";
+  } else {
+    minutesTimer.textContent = "Time's Up!";
+    secondsTimer.textContent = "";
+    dots.textContent = "";
+  
+    // playBtn.removeEventListener('click', counterRun)
+    stopBtn.addEventListener('click', stopTimer);
+    clearInterval(counterStart);
     
 
   }
