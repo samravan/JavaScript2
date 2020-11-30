@@ -19,6 +19,7 @@
     "test-step2-6": "jest step2-6",
     "test-step3": "jest step3",
     "test-step3-bonus": "jest step3-bonus"
+
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,9 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
     "jest": "^25.1.0",
-    "prettier": "^1.15.2"
+    "prettier": "^1.15.2",
+    "prettier-eslint": "^12.0.0",
+    "prettier-eslint-cli": "^5.0.0",
+    "prettier-stylelint": "^0.4.2"
   }
 }
