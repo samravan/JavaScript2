@@ -5,7 +5,7 @@ const people = document.getElementById('people');
 const calculate = document.getElementById('calculate');
 const amount = document.getElementById('amount');
 const each = document.getElementById('each');
-const modal = document.querySelector('.modal');
+const modal = document.getElementById('modal');
 const close = document.getElementById('close');
 
 // When press on calculate button
@@ -14,6 +14,7 @@ calculate.addEventListener('click', calculateTip);
 //calculate tip
 function calculateTip(e) {
   e.preventDefault();
+
   // Display modal element when at least one field empty
   if (bill.value == '' || service.value == 'default' || people.value == '') {
     modal.style.display = 'block';
@@ -24,6 +25,11 @@ function calculateTip(e) {
     const timing = setTimeout(function () {
       modal.style.display = 'none';
     }, 5000);
+    //transition modal
+    modal.classList.remove('trans');
+    setTimeout(function () {
+      modal.classList.add('trans');
+    }, 5);
   } else {  //Calculate tip when all fields are filled
     amount.textContent = parseFloat(service.value * bill.value / 100 / people.value).toFixed(2);
     each.textContent = 'each';
