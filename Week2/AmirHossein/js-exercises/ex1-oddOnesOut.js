@@ -2,7 +2,7 @@
 
  ** Exercise 1: The odd ones out **
 
- Rewrite the following function using map and filter. 
+ Rewrite the following function using map and filter.
  Avoid using for loop or forEach.
  The function should still behave the same.
 
@@ -22,10 +22,10 @@ const myNumbers = [1, 2, 3, 4];
 
 
 //Filter MEthod:
-const evenDouble = myNumbers
+const evenDouble = myNumbers;
     .filter(number => (number % 2 === 0))
     .map(number => number *2 )
-    
-  
+
+
 console.log(evenDouble);
 
