@@ -18,20 +18,4 @@ function doubleEvenNumbers(numbers) {
 }
 
 const myNumbers = [1, 2, 3, 4];
-// console.log(doubleEvenNumbers(myNumbers)); // Logs "[4, 8]" to the console
-
-//Filter Method:
-const evenDouble = myNumbers.filter(number => {
-  if(number % 2 === 0){
-    return number * 2;
-  }
-});
-console.log(evenDouble);
-
-//Map Method: 
-const evenNum = myNumbers.map(number => {
-  if(number % 2 === 0) {
-    return number *2;
-  };
-});
-console.log(evenNum);
+console.log(doubleEvenNumbers(myNumbers)); // Logs "[4, 8]" to the console
